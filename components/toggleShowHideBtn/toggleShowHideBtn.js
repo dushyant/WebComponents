@@ -5,9 +5,26 @@ class toggleBtn extends HTMLElement {
         this.toggleBtnEle;
         this.shadowRoot.innerHTML = `
         <style>
+            button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            button.btn-hide {
+                background-color: #f44336;
+            }
             div {
-                background-color: #dfdfdf;
-                border: 1px solid #333333;
+                font-family: 'Lucida Console';
+                margin-top: 4px;
+                padding: 15px 32px;
+                background-color: white;
+                border: 2px solid #f44336;
+                border-radius: 4px;
                 color: black;
                 display: none;
             }
@@ -31,6 +48,7 @@ class toggleBtn extends HTMLElement {
     showHideToggle() {
         const paraDivEle = this.shadowRoot.querySelector('div');
         paraDivEle.classList.toggle('dp-show');
+        this.toggleBtnEle.classList.toggle('btn-hide');
         if(paraDivEle.classList.contains('dp-show')) {
             this.toggleBtnEle.innerText = 'Hide';
         } else {
